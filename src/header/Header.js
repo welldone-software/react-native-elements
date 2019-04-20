@@ -65,6 +65,7 @@ const Header = ({
   barStyle,
   children,
   theme,
+  BackgroundComponent,
   ...attributes
 }) => (
   <ImageBackground
@@ -78,6 +79,9 @@ const Header = ({
     source={backgroundImage}
     imageStyle={backgroundImageStyle}
   >
+  {BackgroundComponent && (
+    <BackgroundComponent style={styles.backgroundComponent} />
+  )}
     <StatusBar barStyle={barStyle} {...statusBarProps} />
     <Children
       style={StyleSheet.flatten([
@@ -166,6 +170,13 @@ const styles = {
   },
   rightLeftContainer: {
     flex: 1,
+  },
+  backgroundComponent: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
   },
 };
 
